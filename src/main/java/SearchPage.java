@@ -14,19 +14,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by a.gerasimenko on 29.09.2015.
- */
-public class SearchPage extends BasePage {
 
+public class SearchPage {
+
+    private WebDriverWait wait10Seconds;
     private Logger LOG = Logger.getLogger(SearchPage.class);
 
-    public SearchPage searchPage;
-
+    //public SearchPage searchPage;
+    private WebDriver driver;
 
     public SearchPage (WebDriver driver) {
-        super(driver);
-        searchPage = PageFactory.initElements(this.driver, SearchPage.class);
+        //super(driver);
+        //searchPage = PageFactory.initElements(this.driver, SearchPage.class);
+        this.driver = driver;
+        this.wait10Seconds = new WebDriverWait(driver,10);
     }
 
     public SearchPage open() throws Exception{
