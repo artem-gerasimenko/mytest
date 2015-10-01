@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,13 +18,9 @@ public class SearchPage {
 
     private WebDriverWait wait10Seconds;
     private Logger LOG = Logger.getLogger(SearchPage.class);
-
-    //public SearchPage searchPage;
     private WebDriver driver;
 
     public SearchPage (WebDriver driver) {
-        //super(driver);
-        //searchPage = PageFactory.initElements(this.driver, SearchPage.class);
         this.driver = driver;
         this.wait10Seconds = new WebDriverWait(driver,10);
     }

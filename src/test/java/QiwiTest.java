@@ -14,11 +14,6 @@ public class QiwiTest {
     protected WebDriver driver;
 
 
-    //Запускать ли бразуер при выполеннии теста
-    //protected boolean startBrowser;
-    //Запуск браузера без локального профиля
-    protected boolean loadLocalProfile = false;
-
 
     @BeforeClass(groups = {"Qw"})
     public void setUp() {

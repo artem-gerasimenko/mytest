@@ -3,11 +3,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
@@ -81,15 +78,14 @@ public class SearchTest extends QiwiTest {
         searchPage.clickSearch();
         searchPage.waitForSearchResult(50);  // ожидаем пока появится блок с результатами поиска.
         searchPage.clickAllResult();
-        List<WebElement> elements = new ArrayList<WebElement>();
-        List<String> texts = new ArrayList<String>();
         Thread.sleep(6000);
-        elements = driver.findElements(By.xpath("//a[descendant::div[contains(@class,'frame')]]")); // Получаем все объекты из результатов поиска
+        List<WebElement> elements = driver.findElements(By.xpath("//a[descendant::div[contains(@class,'frame')]]")); // Получаем все объекты из результатов поиска
+        List<String> texts = new ArrayList<>();
         for (WebElement elem : elements) {
             texts.add(elem.getText());
         }
 
-        assertThat(texts,hasItem("АКАДО")); // Проверяем что заголовки содержать заданный текст
+        assertThat(texts.contains("АКАДО"), is(true)); // Проверяем что заголовки содержать заданный текст
 
     }
 
